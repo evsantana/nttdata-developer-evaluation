@@ -1,5 +1,5 @@
-using Ambev.DeveloperEvaluation.Domain.Entities;
-using Ambev.DeveloperEvaluation.Domain.Enums;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Entities;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Enums;
 using Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData;
 using Xunit;
 

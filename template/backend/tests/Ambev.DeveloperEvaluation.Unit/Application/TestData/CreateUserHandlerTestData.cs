@@ -1,5 +1,5 @@
 using Ambev.DeveloperEvaluation.Application.Users.CreateUser;
-using Ambev.DeveloperEvaluation.Domain.Enums;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Enums;
 using Bogus;
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain;

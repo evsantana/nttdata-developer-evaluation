@@ -1,4 +1,4 @@
-using Ambev.DeveloperEvaluation.Domain.Entities;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Entities;
 
 namespace Ambev.DeveloperEvaluation.Domain.Repositories;
 

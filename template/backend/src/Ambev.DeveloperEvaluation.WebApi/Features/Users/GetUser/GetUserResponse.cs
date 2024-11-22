@@ -1,4 +1,4 @@
-using Ambev.DeveloperEvaluation.Domain.Enums;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Enums;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Users.GetUser;
 

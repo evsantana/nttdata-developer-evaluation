@@ -11,6 +11,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Products\CreateProduct\**" />
+    <Compile Remove="Features\Products\GetProduct\**" />
+    <Content Remove="Features\Products\CreateProduct\**" />
+    <Content Remove="Features\Products\GetProduct\**" />
+    <EmbeddedResource Remove="Features\Products\CreateProduct\**" />
+    <EmbeddedResource Remove="Features\Products\GetProduct\**" />
+    <None Remove="Features\Products\CreateProduct\**" />
+    <None Remove="Features\Products\GetProduct\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\PaginatedList.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

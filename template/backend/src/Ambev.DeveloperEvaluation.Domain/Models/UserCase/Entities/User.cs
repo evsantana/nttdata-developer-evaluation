@@ -1,10 +1,10 @@
 using Ambev.DeveloperEvaluation.Common.Security;
 using Ambev.DeveloperEvaluation.Common.Validation;
 using Ambev.DeveloperEvaluation.Domain.Common;
-using Ambev.DeveloperEvaluation.Domain.Enums;
-using Ambev.DeveloperEvaluation.Domain.Validation;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Enums;
+using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Validation;
 
-namespace Ambev.DeveloperEvaluation.Domain.Entities;
+namespace Ambev.DeveloperEvaluation.Domain.Models.UserCase.Entities;
 
 
 /// <summary>
@@ -13,6 +13,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
 /// </summary>
 public class User : BaseEntity, IUser
 {
+    #region Properties
     /// <summary>
     /// Gets the user's full name.
     /// Must not be null or empty and should contain both first and last names.
@@ -29,7 +30,7 @@ public class User : BaseEntity, IUser
     /// Gets the user's phone number.
     /// Must be a valid phone number format following the pattern (XX) XXXXX-XXXX.
     /// </summary>
-    public string Phone { get; set; } = string.Empty ;
+    public string Phone { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets the hashed password for authentication.
@@ -42,23 +43,13 @@ public class User : BaseEntity, IUser
     /// Gets the user's role in the system.
     /// Determines the user's permissions and access levels.
     /// </summary>
-    public UserRole Role { get;     set; }
+    public UserRole Role { get; set; }
 
     /// <summary>
     /// Gets the user's current status.
     /// Indicates whether the user is active, inactive, or blocked in the system.
     /// </summary>
     public UserStatus Status { get; set; }
-
-    /// <summary>
-    /// Gets the date and time when the user was created.
-    /// </summary>
-    public DateTime CreatedAt { get; set; }
-
-    /// <summary>
-    /// Gets the date and time of the last update to the user's information.
-    /// </summary>
-    public DateTime? UpdatedAt { get; set; }
 
     /// <summary>
     /// Gets the unique identifier of the user.
@@ -77,6 +68,8 @@ public class User : BaseEntity, IUser
     /// </summary>
     /// <returns>The user's role as a string.</returns>
     string IUser.Role => Role.ToString();
+
+    #endregion
 
     /// <summary>
     /// Initializes a new instance of the User class.

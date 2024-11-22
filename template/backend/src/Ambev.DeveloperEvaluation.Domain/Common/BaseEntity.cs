@@ -6,6 +6,16 @@ public class BaseEntity : IComparable<BaseEntity>
 {
     public Guid Id { get; set; }
 
+    /// <summary>
+    /// Gets the date and time when the item was created.
+    /// </summary>
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    /// <summary>
+    /// Gets the date and time of the last update to the item information.
+    /// </summary>
+    public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
+
     public Task<IEnumerable<ValidationErrorDetail>> ValidateAsync()
     {
         return Validator.ValidateAsync(this);
