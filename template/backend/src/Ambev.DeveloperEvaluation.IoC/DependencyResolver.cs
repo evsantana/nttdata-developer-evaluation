@@ -11,4 +11,9 @@ public static class DependencyResolver
         new InfrastructureModuleInitializer().Initialize(builder);
         new WebApiModuleInitializer().Initialize(builder);
     }
+
+    public static void RegisterMigrations(this WebApplication builder)
+    {
+        new MigrationsModuleInitializer().Initialize(builder);
+    }
 }
