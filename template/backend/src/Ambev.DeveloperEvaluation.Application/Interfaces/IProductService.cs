@@ -13,9 +13,10 @@ namespace Ambev.DeveloperEvaluation.Application.Interfaces
         /// <param name="pageSize">Page size</param>
         /// <param name="orderBy">Order by</param>
         /// <param name="orderDirection">Order Direction</param>
+        /// <param name="filters">Filters</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>List of categories paginated</returns>
-        Task<PaginatedList<ProductDTO>> GetPaginateOrderedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, CancellationToken cancellationToken);
+        Task<PaginatedList<ProductDTO>> GetPaginateOrderedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, IDictionary<string, string> filters, CancellationToken cancellationToken);
 
         /// <summary>
         /// Retrieves a paginated list of entities in a category

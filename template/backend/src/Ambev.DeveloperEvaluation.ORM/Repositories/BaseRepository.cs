@@ -97,5 +97,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
 
             return await PaginatedList<T>.CreateAsync(query, currentPage, pageSize);
         }
+
+
     }
 }

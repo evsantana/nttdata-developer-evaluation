@@ -2,7 +2,8 @@
 {
     public class GetProductsQuery : ProductQuery
     {
-        public GetProductsQuery(int page, int pageSize, string orderBy, string orderDirection) : base(page, pageSize, orderBy, orderDirection)
+        public GetProductsQuery(int page, int pageSize, string orderBy, string orderDirection, IDictionary<string, string> filters) 
+            : base(page, pageSize, orderBy, orderDirection, filters)
         {
         }
     }

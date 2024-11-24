@@ -49,7 +49,7 @@ namespace Ambev.DeveloperEvaluation.Application.Services
         public async Task<PaginatedList<ProductDTO>> GetPaginatedAsync(int currentPage, int pageSize, CancellationToken cancellationToken)
         {
             // Cria a query com os parâmetros de paginação
-            var productsQuery = new GetProductsQuery(currentPage, pageSize, "", "");
+            var productsQuery = new GetProductsQuery(currentPage, pageSize, "", "", null);
 
             // Envia a query ao MediatR
             var result = await _mediator.Send(productsQuery, cancellationToken);
@@ -68,12 +68,13 @@ namespace Ambev.DeveloperEvaluation.Application.Services
         /// <param name="pageSize">Page size</param>
         /// <param name="orderBy">Order by</param>
         /// <param name="orderDirection">Order Direction</param>
+        /// <param name="filters">Filters</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>List of categories paginated</returns>
-        public async Task<PaginatedList<ProductDTO>> GetPaginateOrderedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, CancellationToken cancellationToken)
+        public async Task<PaginatedList<ProductDTO>> GetPaginateOrderedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, IDictionary<string, string> filters, CancellationToken cancellationToken)
         {
             // Cria a query com os parâmetros de paginação
-            var productsQuery = new GetProductsQuery(currentPage, pageSize, orderBy, orderDirection);
+            var productsQuery = new GetProductsQuery(currentPage, pageSize, orderBy, orderDirection, filters);
 
             // Envia a query ao MediatR
             var result = await _mediator.Send(productsQuery, cancellationToken);

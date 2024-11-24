@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace Ambev.DeveloperEvaluation.Application.DTOs
 {
     public class ProductRatingDTO
     {
-        [DisplayName("Rate")]
+        [JsonPropertyName("Rate")]
         public double Rate { get; set; }
 
-        [DisplayName("Count")]
+        [JsonPropertyName("Count")]
         public int Count { get; set; }
 
         public ProductRatingDTO(double rate, int count)

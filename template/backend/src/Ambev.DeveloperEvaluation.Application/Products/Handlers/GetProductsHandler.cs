@@ -6,12 +6,12 @@ using MediatR;
 
 namespace Ambev.DeveloperEvaluation.Application.Products.Handlers
 {
-    public class GetProductHandler : IRequestHandler<GetProductsQuery, PaginatedList<Product>>
+    public class GetProductsHandler : IRequestHandler<GetProductsQuery, PaginatedList<Product>>
     {
 
         private readonly IProductRepository _productRepository;
 
-        public GetProductHandler(IProductRepository productRepository)
+        public GetProductsHandler(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
@@ -19,7 +19,8 @@ namespace Ambev.DeveloperEvaluation.Application.Products.Handlers
 
         public async Task<PaginatedList<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            return await _productRepository.GetPaginateOrderedAsync(request.CurrentPage, request.PageSize, request.OrderBy, request.OrderDirection, cancellationToken);
+            //return await _productRepository.GetPaginateOrderedAsync(request.CurrentPage, request.PageSize, request.OrderBy, request.OrderDirection, cancellationToken);
+            return await _productRepository.GetPaginateOrderedAsync(request.CurrentPage, request.PageSize, request.OrderBy, request.OrderDirection, request.Filters, cancellationToken);
         }
     }
 }

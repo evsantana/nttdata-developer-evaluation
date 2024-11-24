@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Ambev.DeveloperEvaluation.Application.DTOs
 {
@@ -12,33 +13,37 @@ namespace Ambev.DeveloperEvaluation.Application.DTOs
         [Required(ErrorMessage = "The Title is required")]
         [MinLength(3)]
         [MaxLength(50)]
-        [DisplayName("Title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "The Price is required")]
         [Column(TypeName = "decimal(18,2")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
         [DataType(DataType.Currency)]
-        [DisplayName("Price")]
+        [JsonPropertyName("price")]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "The Description is required")]
         [MinLength(5)]
         [MaxLength(250)]
-        [DisplayName("Description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "The Category is required")]
         [MinLength(2)]
         [MaxLength(250)]
-        [DisplayName("Category")]
+        [JsonPropertyName("category")]
         public string Category { get; set; }
 
         [MaxLength(250)]
-        [DisplayName("Image")]
+        [JsonPropertyName("image")]
         public string Image { get; set; }
 
-        [DisplayName("Rating")]
+        [Required(ErrorMessage = "The Date Create is required")]
+        [JsonPropertyName("date created")]
+        public string CreatedAt { get; set; }
+
+        [JsonPropertyName("rating")]
         public ProductRatingDTO Rating { get; set; }
     }
 }
