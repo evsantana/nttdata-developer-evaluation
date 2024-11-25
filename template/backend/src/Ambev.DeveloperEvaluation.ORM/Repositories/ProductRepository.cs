@@ -33,8 +33,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
                 .AsNoTracking();
 
             query = query.SetFilters(filters);
-            query = ApplyOrdering(query, orderBy, orderDirection);
-
+            query = query.SetSort(orderBy, orderDirection);
 
             return await PaginatedList<Product>.CreateAsync(query, currentPage, pageSize);
         }
@@ -69,35 +68,5 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
 
             return await PaginatedList<Product>.CreateAsync(query, currentPage, pageSize);
         }
-
-        /// <summary>
-        /// Apply the ordering in a query
-        /// </summary>
-        /// <param name="query">Query</param>
-        /// <param name="orderBy">Order by</param>
-        /// <param name="orderDirection">Order direction</param>
-        /// <returns></returns>
-        private IQueryable<Product> ApplyOrdering(IQueryable<Product> query, string orderBy, string orderDirection)
-        {
-            switch (orderBy.ToLower())
-            {
-                case "price":
-                    query = orderDirection.ToLower() == "desc"
-                        ? query.OrderByDescending(p => p.Price)
-                        : query.OrderBy(p => p.Price);
-                    break;
-
-                case "title":
-                default:
-                    query = orderDirection.ToLower() == "desc"
-                        ? query.OrderByDescending(p => p.Title)
-                        : query.OrderBy(p => p.Title);
-                    break;
-            }
-
-            return query;
-        }
-
-
     }
 }

@@ -1,11 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Ambev.DeveloperEvaluation.ORM.Extensions
 {
-    public static class QueryableExtensions
+    public static class FilterExtension
     {
         /// <summary>
         /// Create query filters
@@ -26,7 +24,8 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
 
                 if (minRange || maxRange)
                     propertyName = propertyName.Substring(4); //Remove _min or _max
-                    
+
+                //Field exists
                 var property = typeof(T).GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
                 if (property == null) continue;
 
@@ -40,7 +39,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
                 {
                     lambda = GetRangeFilter<T>(parameter, property, value, minRange);
                 }
-                else if(wildcard && property.PropertyType == typeof(string))
+                else if (wildcard && property.PropertyType == typeof(string))
                 {
                     lambda = GetStringOrExactFilter<T>(parameter, property, value);
                 }
