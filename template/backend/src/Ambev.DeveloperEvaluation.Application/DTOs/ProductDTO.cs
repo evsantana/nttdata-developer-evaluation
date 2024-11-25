@@ -39,9 +39,8 @@ namespace Ambev.DeveloperEvaluation.Application.DTOs
         [JsonPropertyName("image")]
         public string Image { get; set; }
 
-        [Required(ErrorMessage = "The Date Create is required")]
-        [JsonPropertyName("date created")]
-        public string CreatedAt { get; set; }
+        //[JsonPropertyName("date created")]
+        //public string CreatedAt { get; set; }
 
         [JsonPropertyName("rating")]
         public ProductRatingDTO Rating { get; set; }

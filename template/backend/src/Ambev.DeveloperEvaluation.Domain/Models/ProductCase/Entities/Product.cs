@@ -63,7 +63,6 @@ namespace Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities
         public void Update(string title, decimal price, string description, string category, string image, double rating, int count)
         {
             Validation(title, price, description, category, image);
-            Id = Id;
             Rating = rating;
             Count = count;
         }

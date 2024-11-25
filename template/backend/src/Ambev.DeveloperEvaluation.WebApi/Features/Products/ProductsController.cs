@@ -2,7 +2,6 @@
 using Ambev.DeveloperEvaluation.Application.Interfaces;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
 {
@@ -154,11 +153,11 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
         [ProducesResponseType(typeof(ApiResponseWithData<PaginatedResponse<ProductDTO>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllProducts(
-            int pageNumber = 1, 
-            int pageSize = 10, 
+            int pageNumber = 1,
+            int pageSize = 10,
             string orderBy = "title",
             [FromQuery] IDictionary<string, string>? filters = null,
-            string orderDirection = "asc", 
+            string orderDirection = "asc",
             CancellationToken cancellationToken = default)
         {
             var result = await _productService.GetPaginateOrderedAsync(pageNumber, pageSize, orderBy, orderDirection, filters, cancellationToken);
