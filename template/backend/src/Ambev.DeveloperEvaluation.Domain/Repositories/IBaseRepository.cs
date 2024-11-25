@@ -53,8 +53,11 @@ namespace Ambev.DeveloperEvaluation.Domain.Repositories
         /// </summary>
         /// <param name="currentPage">Page number to retrieve</param>
         /// <param name="pageSize">Page size</param>
+        /// <param name="orderBy">Order by</param>
+        /// <param name="orderDirection">Order Direction</param>
+        /// <param name="filters">Filters</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>A paginated list of entities</returns>
-        Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize, CancellationToken cancellationToken);
+        Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, IDictionary<string, string> filters, CancellationToken cancellationToken);
     }
 }

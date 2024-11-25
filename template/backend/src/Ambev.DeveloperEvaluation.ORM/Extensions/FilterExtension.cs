@@ -14,6 +14,9 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
         /// <returns>Filtered query</returns>
         public static IQueryable<T> SetFilters<T>(this IQueryable<T> query, IDictionary<string, string> filters)
         {
+            if (filters is null)
+                return query;
+
             foreach (var f in filters)
             {
                 var propertyName = f.Key;

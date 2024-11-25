@@ -20,8 +20,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
             builder.Property(u => u.Image).HasMaxLength(250);
             builder.Property(u => u.Rating).IsRequired();
             builder.Property(u => u.Count).IsRequired();
-
-            //builder.HasOne(e => e.Rating).WithOne(e => e.Product).HasForeignKey<ProductRating>(e => e.ProductId);
         }
 
 

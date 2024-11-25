@@ -9,6 +9,6 @@ namespace Ambev.DeveloperEvaluation.Application.Interfaces
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
         Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken);
-        Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize, CancellationToken cancellationToken);
+        Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize,string orderBy, string orderDirection, CancellationToken cancellationToken);
     }
 }

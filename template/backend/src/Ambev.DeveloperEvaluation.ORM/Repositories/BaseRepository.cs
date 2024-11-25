@@ -2,6 +2,7 @@
 using Ambev.DeveloperEvaluation.Domain.Common;
 using Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
+using Ambev.DeveloperEvaluation.ORM.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories
@@ -90,10 +91,17 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
         /// </summary>
         /// <param name="currentPage">Current page</param>
         /// <param name="pageSize">Page size</param>
+        /// <param name="orderBy">Order by</param>
+        /// <param name="orderDirection">Order Direction</param>
+        /// <param name="filters">Filter</param>
         /// <returns></returns>
-        public async Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize, CancellationToken cancellationToken)
+        public async Task<PaginatedList<T>> GetPaginatedAsync(int currentPage, int pageSize, string orderBy, string orderDirection, IDictionary<string, string> filters, CancellationToken cancellationToken)
         {
-            var query = _context.Set<T>().AsNoTracking();
+            var query = _context.Set<T>()
+                .AsNoTracking();
+
+            query = query.SetFilters(filters);
+            query = query.SetSort(orderBy, orderDirection);
 
             return await PaginatedList<T>.CreateAsync(query, currentPage, pageSize);
         }
