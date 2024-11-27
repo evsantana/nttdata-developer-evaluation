@@ -32,6 +32,7 @@ GET /api/Products?pageNumber=2&pageSize=20
 ### Ordering
 Ordering is supported for list endpoints using the query parameter `orderBy` and `orderDirection`. 
 Simply indicate the desired order: ascending (`asc`) or descending (`desc`)
+
 Example:
 ```
 GET /api/Products?orderBy=title&orderDirection=asc
