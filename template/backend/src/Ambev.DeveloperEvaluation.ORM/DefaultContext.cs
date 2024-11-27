@@ -39,7 +39,7 @@ public class YourDbContextFactory : IDesignTimeDbContextFactory<DefaultContext>
             .Build();
 
         var builder = new DbContextOptionsBuilder<DefaultContext>();
-        var connectionString = configuration.GetConnectionString("LocalConnection");
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         builder.UseNpgsql(
                connectionString,
