@@ -13,7 +13,7 @@ Or run docker from the command line:
 
 It is not necessary to run the `dotnet ef database update` command.
 
-PS: If necessary, change the PostgreSQL and MongoDB connection strings in the appsettings.json file.
+If necessary, change the PostgreSQL and MongoDB connection strings in the appsettings.json file.
 ![alt text](connection-string.jpg)
 
 ## Pagination, Sort and Filters
