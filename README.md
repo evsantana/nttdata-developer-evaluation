@@ -3,6 +3,7 @@ This is a Backend API developed using .NET Core 8 and VisualStudio 2022.
 
 ## How to run
 Using Visual Studio 2022, run Docker Compose as shown in the image below:
+
 ![alt text](run-compose.jpg)
 
 Or run docker from the command line:
