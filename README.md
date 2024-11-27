@@ -84,5 +84,5 @@ Sales event logs are stored in MongoDB in the SaleEventLogs collection.
 - *Faker*
 - *Docker*
 - *PostgreSQL*
-- *MondoDB*
+- *MongoDB*
 - *Redis*
