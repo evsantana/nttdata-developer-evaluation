@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Application.DTOs;
 using Ambev.DeveloperEvaluation.Application.Interfaces;
+using Ambev.DeveloperEvaluation.Application.Services;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -147,5 +148,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Sales
 
             return OkPaginated(result);
         }
+
+
     }
 }
