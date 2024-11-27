@@ -49,6 +49,7 @@ GET /api/Products?title=clothing&price=109.95
 ```
 
 **String Fields**
+
 To filter partial matches for string fields, use an asterisk (`*`) before or after the value.
 
 Example:
