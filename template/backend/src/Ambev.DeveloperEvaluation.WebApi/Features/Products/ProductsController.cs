@@ -156,8 +156,8 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
             int pageNumber = 1,
             int pageSize = 10,
             string orderBy = "title",
-            [FromQuery] IDictionary<string, string>? filters = null,
             string orderDirection = "asc",
+            [FromQuery] IDictionary<string, string>? filters = null,
             CancellationToken cancellationToken = default)
         {
             var result = await _productService.GetPaginateOrderedAsync(pageNumber, pageSize, orderBy, orderDirection, filters, cancellationToken);
