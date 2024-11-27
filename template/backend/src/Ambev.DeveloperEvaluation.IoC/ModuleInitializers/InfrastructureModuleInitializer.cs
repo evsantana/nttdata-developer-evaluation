@@ -6,7 +6,6 @@ using Ambev.DeveloperEvaluation.ORM.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace Ambev.DeveloperEvaluation.IoC.ModuleInitializers;
 
@@ -23,6 +22,11 @@ public class InfrastructureModuleInitializer : IModuleInitializer
 
         builder.Services.AddScoped<ICartRepository, CartRepository>();
         builder.Services.AddScoped<ICartService, CartService>();
+
+        builder.Services.AddScoped<ISaleRepository, SaleRepository>();
+        builder.Services.AddScoped<ISaleService, SaleService>();
+
+        builder.Services.AddScoped<ISaleItemRepository, SaleItemRepository>();
     }
 
 }

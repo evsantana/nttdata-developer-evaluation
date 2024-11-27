@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Models.CartCase.Entities;
 using Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities;
+using Ambev.DeveloperEvaluation.Domain.Models.SaleCase.Entities;
 using Ambev.DeveloperEvaluation.Domain.Models.UserCase.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -14,6 +15,9 @@ public class DefaultContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Cart> Carts { get; set; }
     public DbSet<CartItem> CartItems { get; set; }
+
+    public DbSet<Sale> Sales { get; set; }
+    public DbSet<SaleItem> SaleItems { get; set; }
 
     public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
     {

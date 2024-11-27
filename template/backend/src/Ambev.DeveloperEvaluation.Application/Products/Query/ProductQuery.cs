@@ -12,8 +12,8 @@ namespace Ambev.DeveloperEvaluation.Application.Products.Query
         public int CurrentPage { get; set; }
         public int PageSize { get; set; }
 
-        public string OrderBy { get; set; } = "Title"; // Campo padrão para ordenação
-        public string OrderDirection { get; set; } = "asc"; // Direção padrão (ascendente)
+        public string OrderBy { get; set; } = "Title"; //Default order field
+        public string OrderDirection { get; set; } = "asc"; //Default order direction
 
         public IDictionary<string, string> Filters { get; set; } = new Dictionary<string, string>();
 

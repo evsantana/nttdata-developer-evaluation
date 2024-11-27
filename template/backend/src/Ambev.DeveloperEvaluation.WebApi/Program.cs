@@ -9,6 +9,7 @@ using Ambev.DeveloperEvaluation.WebApi.Middleware;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using System.Collections;
 
 namespace Ambev.DeveloperEvaluation.WebApi;
 
@@ -35,6 +36,7 @@ public class Program
                     b => b.MigrationsAssembly("Ambev.DeveloperEvaluation.ORM")
                 )
             );
+
 
             builder.Services.AddJwtAuthentication(builder.Configuration);
 

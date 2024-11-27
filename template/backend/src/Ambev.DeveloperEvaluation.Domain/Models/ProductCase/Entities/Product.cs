@@ -55,11 +55,9 @@ namespace Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities
 
         public double Rating { get; private set; }
         public int Count { get; private set; }
-
-        //public ProductRating Rating { get; set; }
         #endregion
 
-
+        #region Methods
         public void Update(string title, decimal price, string description, string category, string image, double rating, int count)
         {
             Validation(title, price, description, category, image);
@@ -83,7 +81,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities
             DomainExceptionValidation.When(category.Length < 2, "Category must be at least 2 characters long.");
             DomainExceptionValidation.When(category.Length > 250, "Category cannot be longer than 50 characters.");
 
-            DomainExceptionValidation.When(category.Length > 250, "Image cannot be longer than 250 characters.");
+            DomainExceptionValidation.When(image.Length > 250, "Image cannot be longer than 250 characters.");
 
             Title = title;
             Price = price;
@@ -91,6 +89,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities
             Category = category;
             Image = image;
         }
+        #endregion
 
     }
 }

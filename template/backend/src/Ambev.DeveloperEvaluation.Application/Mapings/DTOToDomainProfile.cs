@@ -1,6 +1,7 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Carts.Command;
 using Ambev.DeveloperEvaluation.Application.DTOs;
 using Ambev.DeveloperEvaluation.Application.Products.Command;
+using Ambev.DeveloperEvaluation.Application.Sales.Command;
 using AutoMapper;
 
 namespace Ambev.DeveloperEvaluation.Application.Mapings
@@ -23,9 +24,11 @@ namespace Ambev.DeveloperEvaluation.Application.Mapings
             CreateMap<CartDTO, UpdateCartCommand>()
                 .ForMember(dest => dest.CartItems, opt => opt.MapFrom(src => src.CartItems));
 
-            //CreateMap<CartItemDTO, CartItem>()
-            //    .ForMember(dest => dest.CartId, opt => opt.Ignore());
+            CreateMap<SaleDTO, CreateSaleCommand>()
+                .ForMember(dest => dest.SaleItems, opt => opt.MapFrom(src => src.SaleItems));
 
+            CreateMap<SaleDTO, UpdateSaleCommand>()
+                .ForMember(dest => dest.SaleItems, opt => opt.MapFrom(src => src.SaleItems));
         }
     }
 }

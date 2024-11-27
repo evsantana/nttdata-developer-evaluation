@@ -1,6 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Pagination;
 using Ambev.DeveloperEvaluation.Domain.Common;
-using Ambev.DeveloperEvaluation.Domain.Models.ProductCase.Entities;
 
 namespace Ambev.DeveloperEvaluation.Domain.Repositories
 {

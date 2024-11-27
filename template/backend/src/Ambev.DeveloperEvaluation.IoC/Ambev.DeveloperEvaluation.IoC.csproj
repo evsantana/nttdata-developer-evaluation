@@ -12,6 +12,7 @@
 	
 	<ItemGroup>
 	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.8" />
+	  <PackageReference Include="Serilog.Sinks.MongoDB" Version="7.0.0" />
 	</ItemGroup>
 	
 	<ItemGroup>

@@ -143,7 +143,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts
 
 
         /// <summary>
-        /// Retrieves all products
+        /// Retrieves all carts
         /// </summary>
         /// <param name="pageNumber">Current page</param>
         /// <param name="pageSize">Page size</param>

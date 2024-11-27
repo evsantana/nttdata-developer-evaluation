@@ -35,7 +35,7 @@ services:
     image: mongo:8.0    
     environment:
         MONGO_INITDB_ROOT_USERNAME: developer
-        MONGO_INITDB_ROOT_PASSWORD: ev@luAt10n
+        MONGO_INITDB_ROOT_PASSWORD: ev0luAt10n
     ports:
       - "27017"
 

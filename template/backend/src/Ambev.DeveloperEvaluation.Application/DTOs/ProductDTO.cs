@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -38,9 +37,6 @@ namespace Ambev.DeveloperEvaluation.Application.DTOs
         [MaxLength(250)]
         [JsonPropertyName("image")]
         public string Image { get; set; }
-
-        //[JsonPropertyName("date created")]
-        //public string CreatedAt { get; set; }
 
         [JsonPropertyName("rating")]
         public ProductRatingDTO Rating { get; set; }

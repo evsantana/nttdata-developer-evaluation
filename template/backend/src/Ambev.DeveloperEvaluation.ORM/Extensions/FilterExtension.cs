@@ -64,6 +64,14 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
             return query;
         }
 
+        /// <summary>
+        /// Create filter for strings
+        /// </summary>
+        /// <typeparam name="T">Type of</typeparam>
+        /// <param name="parameter">Parameter expression</param>
+        /// <param name="property">Property info</param>
+        /// <param name="value">Value</param>
+        /// <returns></returns>
         private static Expression<Func<T, bool>> GetStringOrExactFilter<T>(ParameterExpression parameter, PropertyInfo property, string value)
         {
             var member = Expression.Property(parameter, property.Name);
@@ -79,7 +87,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
             }
             else if (value.StartsWith("*"))
             {
-                // Termina com (*value)
+                // Ends with (*value)
                 var endsWithValue = value.TrimStart('*');
                 var method = typeof(string).GetMethod("EndsWith", new[] { typeof(string) });
                 var constant = Expression.Constant(endsWithValue);
@@ -88,7 +96,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
             }
             else if (value.EndsWith("*"))
             {
-                // Começa com (value*)
+                // Start with (value*)
                 var startsWithValue = value.TrimEnd('*');
                 var method = typeof(string).GetMethod("StartsWith", new[] { typeof(string) });
                 var constant = Expression.Constant(startsWithValue);
@@ -96,22 +104,27 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
                 return Expression.Lambda<Func<T, bool>>(startsWithExpression, parameter);
             }
 
-
             return null;
         }
 
+        /// <summary>
+        /// Create range filter
+        /// </summary>
+        /// <typeparam name="T">Type of</typeparam>
+        /// <param name="parameter">Parameter expression</param>
+        /// <param name="property">Property info</param>
+        /// <param name="value">Value</param>
+        /// <param name="isMin">Is min</param>
+        /// <returns></returns>
         private static Expression<Func<T, bool>> GetRangeFilter<T>(ParameterExpression parameter, PropertyInfo property, string value, bool isMin)
         {
-            // Converter o valor para o tipo correto
+            //Convert the value to the correct type
             var propertyType = property.PropertyType;
             object convertedValue;
 
             if (propertyType == typeof(DateTime) || propertyType == typeof(DateTime?))
             {
-                //DateTime parsedDate = DateTime.Parse(value);
                 convertedValue = DateTime.Parse(value).ToUniversalTime();
-
-                //convertedValue = Convert.ChangeType(parsedDate, propertyType);
             }
             else if (propertyType == typeof(DateTimeOffset) || propertyType == typeof(DateTimeOffset?))
             {
@@ -123,7 +136,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Extensions
             }
 
 
-            // Criar a expressão de comparação
+            //Create the comparison expression
             var member = Expression.Property(parameter, property.Name);
             var constant = Expression.Constant(convertedValue, propertyType);
 

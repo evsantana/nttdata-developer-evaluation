@@ -15,9 +15,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Mapping
 
             builder.Property(s => s.UserId).IsRequired();
 
-            //Foreing Key 
-            //builder.HasOne(p => p.User).WithMany(e => e.Carts).HasForeignKey(e => e.UserId);
-
             builder.HasMany(c => c.CartItems)
                    .WithOne(ci => ci.Cart)
                    .HasForeignKey(ci => ci.CartId)

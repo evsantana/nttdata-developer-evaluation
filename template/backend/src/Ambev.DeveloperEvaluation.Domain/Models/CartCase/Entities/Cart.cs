@@ -10,6 +10,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Models.CartCase.Entities
         public Cart() { }
         public Cart(Guid userId, ICollection<CartItem> cartItems)
         {
+            DomainExceptionValidation.When(cartItems.Count <= 0, "Invalid list of items.");
             Validation(userId);
             CartItems = cartItems;
         }
